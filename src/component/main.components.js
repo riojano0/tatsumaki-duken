@@ -29,10 +29,10 @@ class Main extends React.Component {
         return (
             <div className="main">
                 <header className="App-header"><div>Tatsumaki Duken - Tu random video de Tak Tak Duken</div></header>
-                <Navbar alignLinks="right">
-                    <NavItem target="_blank" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">Canal de TakTakDuken</NavItem>
-                    <NavItem target="_blank" href="https://github.com/riojano0/tatsumaki-duken">Github del projecto</NavItem>
-                </Navbar>
+                <div class="topnav">
+                    <a target="_blank" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">Canal de TakTakDuken</a>
+                    <a target="_blank" href="https://github.com/riojano0/tatsumaki-duken">Github del projecto</a>
+                </div>
                 <Button className="select-fernet-button" onClick={this.handleClickSelectFernet}>Selecciona tu Fernet al Azar!</Button>
                 <YoutubeWrapper selectedVideo={this.state.selectedVideo}/>
                 <Button onClick={this.handleClickShowVideos}>{this.state.showMessage}</Button>
