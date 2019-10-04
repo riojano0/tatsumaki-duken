@@ -31,7 +31,7 @@ class Main extends React.Component {
                 <header className="App-header"><div>Tatsumaki Duken - Tu random video de Tak Tak Duken</div></header>
                 <Navbar alignLinks="right">
                     <NavItem target="_blank" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">Canal de TakTakDuken</NavItem>
-                    <NavItem target="_blank" href="github.com">Github del projecto</NavItem>
+                    <NavItem target="_blank" href="https://github.com/riojano0/tatsumaki-duken">Github del projecto</NavItem>
                 </Navbar>
                 <Button className="select-fernet-button" onClick={this.handleClickSelectFernet}>Selecciona tu Fernet al Azar!</Button>
                 <YoutubeWrapper selectedVideo={this.state.selectedVideo}/>
