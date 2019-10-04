@@ -2,13 +2,18 @@
   text-align: center;
 }
 
+.select-fernet-button {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
 .App-logo {
   height: 40vmin;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
