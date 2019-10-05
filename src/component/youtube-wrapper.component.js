@@ -9,15 +9,15 @@ class YoutubeWrapper extends React.Component {
 
     render () {
         const opts = {
-            height: '720',
-            width: '1280',
             playerVars: {
                 autoplay: 0
             }
         };
 
         return (
-            <Youtube videoId={this.props.selectedVideo} opts={opts} onReady={this._onReady}/>
+            <div className="youtube-wrapper">
+                <Youtube videoId={this.props.selectedVideo} opts={opts} onReady={this._onReady}/>
+            </div>
         );
     };
 

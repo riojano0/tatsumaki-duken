@@ -1,6 +1,6 @@
 import React from 'react';
 import YoutubeWrapper from './youtube-wrapper.component';
-import { Button, Navbar, NavItem } from 'react-materialize';
+import { Button } from 'react-materialize';
 import TatsumakiDukenApi from '../api/tatsumaki.duken.api';
 
 class Main extends React.Component {
@@ -23,19 +23,19 @@ class Main extends React.Component {
     render() {
         const videos = this.videos;
         const videoList = videos.map((data, idx) => {
-            return <img key={idx} src={data.thumb} alt={data.title} onClick={() => this.handleThumbClick(data)}/>;
+            return <img className="video-thumb" key={idx} src={data.thumb} alt={data.title} onClick={() => this.handleThumbClick(data)}/>;
         })
 
         return (
             <div className="main">
                 <header className="App-header"><div>Tatsumaki Duken - Tu random video de Tak Tak Duken</div></header>
                 <div class="topnav">
-                    <a target="_blank" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">Canal de TakTakDuken</a>
-                    <a target="_blank" href="https://github.com/riojano0/tatsumaki-duken">Github del projecto</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">Canal de TakTakDuken</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/riojano0/tatsumaki-duken">Github del projecto</a>
                 </div>
                 <Button className="select-fernet-button" onClick={this.handleClickSelectFernet}>Selecciona tu Fernet al Azar!</Button>
                 <YoutubeWrapper selectedVideo={this.state.selectedVideo}/>
-                <Button onClick={this.handleClickShowVideos}>{this.state.showMessage}</Button>
+                <Button className="more-fernet-button" onClick={this.handleClickShowVideos}>{this.state.showMessage}</Button>
                 <div className="video-list" hidden={this.state.hiddenVideos}>
                     {videoList}
                 </div>
