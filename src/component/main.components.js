@@ -3,6 +3,10 @@ import YoutubeWrapper from './youtube-wrapper.component';
 import { Button } from 'react-materialize';
 import TatsumakiDukenApi from '../api/tatsumaki.duken.api';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faDragon, faPlay } from '@fortawesome/free-solid-svg-icons';
+
 class Main extends React.Component {
 
     constructor() {
@@ -17,35 +21,91 @@ class Main extends React.Component {
         this.videos = this.loadVideos();
         this.handleClickSelectFernet = this.handleClickSelectFernet.bind(this);
         this.handleThumbClick = this.handleThumbClick.bind(this);
-        this.handleClickShowVideos = this.handleClickShowVideos.bind(this);
     }
 
     render() {
+
+
         const videos = this.videos;
+
+        
         const videoList = videos.map((data, idx) => {
-            return <img className="video-thumb" key={idx} src={data.thumb} alt={data.title} onClick={() => this.handleThumbClick(data)}/>;
+            return <div className="vidItem" onClick={() => this.handleThumbClick(data)}>
+                <figure className="video-thumb" style={{backgroundImage: `url(${data.thumb})`}} key={idx} src={data.thumb} />
+                <FontAwesomeIcon className="playIcon" icon={faPlay} />
+                <div className="InfoItem">
+                    <div>
+                        <span>{data.title}</span>
+                        <p>25/5/2019</p>
+                    </div>
+                    
+                    <span className="displayNone">2:51</span>
+                </div>
+            </div>;
         })
+        
 
         return (
             <div className="main">
-                <header className="App-header"><div>Tatsumaki Duken - Tu random video de Tak Tak Duken</div></header>
-                <div class="topnav">
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">Canal de TakTakDuken</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/riojano0/tatsumaki-duken">Github del projecto</a>
+
+                <div className="AppNav">
+                    <div className="HeaderNav">
+                        <FontAwesomeIcon icon={faDragon} />
+                        <div className="Appheader">
+                            <div>Tatsumaki Duken</div>
+                            <span>Tu random video de Tak Tak Duken</span>
+                        </div>
+                    </div>
+                    <div className="InfoHead">
+                        <div>
+                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/riojano0/tatsumaki-duken">
+                                <FontAwesomeIcon icon={faGithub} />
+                                Github del projecto
+                            </a>
+                        </div>
+                        <div>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCN7d0PD64S9ONOKD5yXNslg">
+                                <FontAwesomeIcon icon={faYoutube} />
+                                Canal de TakTakDuken
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <Button className="select-fernet-button" onClick={this.handleClickSelectFernet}>Selecciona tu Fernet al Azar!</Button>
-                <YoutubeWrapper selectedVideo={this.state.selectedVideo}/>
-                <Button className="more-fernet-button" onClick={this.handleClickShowVideos}>{this.state.showMessage}</Button>
-                <div className="video-list" hidden={this.state.hiddenVideos}>
-                    {videoList}
+
+                <div className="MainContent">
+                    <div className="dv_mainVideo">
+                        <h1>{this.state.selectedVideo.title}</h1>
+                        <p>{this.state.selectedVideo.description}</p>
+                        <YoutubeWrapper selectedVideo={this.state.selectedVideo.id}/>
+                        <a target="_blank" rel="noopener noreferrer" href={this.state.selectedVideo.link}>Ver video en Youtube</a>
+                    </div>
+                    <div className="dv_videoList">
+                        
+                        <Button className="btlRandom" onClick={this.handleClickSelectFernet}>Selecciona tu Fernet al Azar!</Button>
+                        
+                        <div className="video-list" hidden={this.state.hiddenVideos}>
+                            {videoList}
+                        </div>
+                    </div>
+
                 </div>
+
+                <div className="Footer">
+
+                </div>
+              
             </div>
         );
     }
 
+
+    
+
+
+
     componentDidMount() {
         this.setState({
-            selectedVideo : this.videos[0].id
+            selectedVideo : this.videos[0]
         });
     }
 
@@ -56,7 +116,7 @@ class Main extends React.Component {
 
     handleThumbClick(data) {
         this.setState({
-            selectedVideo: data.id
+            selectedVideo: data
         });
     }
 
@@ -64,25 +124,11 @@ class Main extends React.Component {
         let video = this.videos[Math.floor(Math.random() * this.videos.length)];
 
         this.setState({
-            selectedVideo: video.id
+            selectedVideo: video
         });
     }
 
-    handleClickShowVideos() {
-        let isVideosHide = this.state.hiddenVideos;
-
-        if(isVideosHide) {
-            this.setState({
-                hiddenVideos: false,
-                showMessage: "Menos fernet"
-            });
-        } else {
-            this.setState({
-                hiddenVideos: true,
-                showMessage: "Quiero ver todos esos fernets!"
-            });
-        }
-    }
+  
 }
 
 export default Main;

@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+
+body{
+    background: #1d1d1d;
+    width: 100%;
+    font-size: 13px;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    flex-direction: column;
+}
+
+
+
+.displayNone{
+    display: none;
+}
+
+
+
+
+.AppNav {
+    background: #272727;
+    color: white;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.HeaderNav{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.HeaderNav svg{
+    font-size: 49px;
+    color: #ff8d00;
+    padding: 10px;
+    background: #353535;
+    border-radius: 5px;
+}
+
+.HeaderNav .Appheader {
+    margin-left: 15px;
+    background-image: url()
+}
+
+.HeaderNav .Appheader div {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: arial;
+    color: #ff8d00;
+}
+
+.HeaderNav .Appheader span {
+    color: #ffffff85;
+    margin: 0;
+    padding: 0;
+}
+
+.InfoHead {
+    border-left: 1px solid #ff8d00;
+    padding-left: 14px;
+    margin-right: 20px;
+}
+
+
+.InfoHead div{
+    padding: 2px;
+}
+
+.InfoHead div a{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.InfoHead div a:hover  {
+    color: #ff8d00 !important;
+}
+
+.InfoHead div a svg {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+
+.MainContent {
+    
+    background-image: url("../style/BG3.png");
+
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+
+
+.MainContent .dv_mainVideo h1 {
+    font-size: 15px;
+    color: #ababab;
+    line-height: normal;
+    margin: 0;
+    font-weight: normal;
+    background: repeating-linear-gradient(90deg, #272727, transparent 100%);
+    padding: 10px 17px;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 2px solid #101010;
+    margin-bottom: 5px;
+    
+}
+
+
+.MainContent .dv_mainVideo > p{
+    color: #989898;
+    padding: 10px 20px;
+    margin-top: -5px;
+}
+
+.MainContent .dv_mainVideo > a {
+    font-size: 13px;
+    color: #039be5;
+    line-height: normal;
+    margin: 0;
+    font-weight: normal;
+    background: repeating-linear-gradient(90deg, transparent, #272727 100%);
+    padding: 10px 17px;
+    border-radius: 0px 0px 5px 5px;
+    border-top: 2px solid #101010;
+    margin-top: 5px;
+    text-align: end;
+}
+
+.MainContent .dv_mainVideo > a:hover {
+    color: #ff8d00;
+}
+
+
+
+.dv_videoList {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 635px;
+    padding: 10px;
+}
+
+
+.video-list {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    background: #272727;
+    padding: 0px;
+    overflow: auto;
+    flex-direction: column;
+    border: 15px solid #272727;
+    border-radius: 5px;
+}
+
+
+.vidItem {
+    color: #888888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-top: 1px solid #484848;
+    background: #272727;
+    padding: 0 12px;
+}
+
+
+
+.vidItem .InfoItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vidItem .InfoItem > div {
+    width: 335px;
+    margin: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.vidItem .InfoItem > div span {
+    font-weight: bold;
+}
+
+.vidItem .InfoItem > span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+.vidItem .playIcon{
+    opacity: 0;
+    position: relative;
+    margin-left: 0px;
+    z-index: 500000;
+    color: #ff8d00;
+    font-size: 20px;
+    background: #272727d1;
+    padding: 16px;
+    height: 45px;
+    width: 45px;
+    border-radius: 55px;
+    margin-left: -76px;
+    margin-right: 28px;
+}
+
+.vidItem .video-thumb {
+    padding: 0px 0px;
+    border: none;
+    border-radius: 0px;
+    opacity: 1;
+    margin-right: 0px;
+    background-repeat: repeat;
+    background-position-x: center;
+    background-position-y: -9px;
+    filter: brightness(100%) saturate(100%);
+    margin: 8px 0px;
+    height: 57px;
+    width: 100px;
+    background-size: 100px;
+    margin-left: 0px;
+    
+}
+
+.vidItem:hover {
+    color: #ff8d00;
+    background: #272727;
+    cursor: pointer;
+}
+
+.vidItem:hover .video-thumb{
+    cursor: pointer;
+}
+
+.vidItem:hover .playIcon{
+    opacity: 1;
+}
+
+
+/*
+.vidItem .video-thumb:hover{
+    cursor: pointer;
+    filter: brightness(40%) saturate(0%);
+    
+}
+*/
+
+
+
+
+
+.dv_mainVideo {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    max-height: 635px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+iframe, .youtube-wrapper,  .youtube-wrapper > div{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.Footer{
+    height: 30px;
+    background: #272727;
+    width: 100%;
+}
+
+
+
+
+.btlRandom{
+    background: #ff8d0030;
+    box-shadow: none !important;
+    border: none !important;
+    letter-spacing: normal;
+    text-transform: inherit;
+    color: #ff8d00;
+    margin: 4px 5px 10px 5px;
+    border-radius: 75px;
+    text-align: center;
+    width: auto;
+    align-self: flex-end;
+    line-height: inherit;
+    padding: 2px 17px;
+}
+.btlRandom:active, .btlRandom:focus{
+    background: #ff8d00;
+    color: #272727;
+}
+
+.btlRandom:hover{
+    background: #ff8d00;
+    color: #272727;
+}
+
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #333333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background: #929292;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 50px;
+    background: #ff8d00;
+}
