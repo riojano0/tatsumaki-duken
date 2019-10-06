@@ -33,14 +33,6 @@ class Main extends React.Component {
             return <div className="vidItem" onClick={() => this.handleThumbClick(data)}>
                 <figure className="video-thumb" style={{backgroundImage: `url(${data.thumb})`}} key={idx} src={data.thumb} />
                 <FontAwesomeIcon className="playIcon" icon={faPlay} />
-                <div className="InfoItem">
-                    <div>
-                        <span>{data.title}</span>
-                        <p>25/5/2019</p>
-                    </div>
-                    
-                    <span className="displayNone">2:51</span>
-                </div>
             </div>;
         })
         
@@ -77,7 +69,6 @@ class Main extends React.Component {
                         <h1>{this.state.selectedVideo.title}</h1>
                         <p>{this.state.selectedVideo.description}</p>
                         <YoutubeWrapper selectedVideo={this.state.selectedVideo.id}/>
-                        <a target="_blank" rel="noopener noreferrer" href={this.state.selectedVideo.link}>Ver video en Youtube</a>
                     </div>
                     <div className="dv_videoList">
                         
@@ -86,6 +77,7 @@ class Main extends React.Component {
                         <div className="video-list" hidden={this.state.hiddenVideos}>
                             {videoList}
                         </div>
+                        
                     </div>
 
                 </div>
