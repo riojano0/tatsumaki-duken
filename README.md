@@ -7,11 +7,14 @@ App create to select random a video from your favorite podcast Tak Tak Duken
 
 ## Run on 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f2eb3e59-c2b0-4c83-afcb-1569f7808f0d/deploy-status)](https://app.netlify.com/sites/tatsumaki-duken/deploys)
+
 [Tatsumaki Duken](https://tatsumaki-duken.netlify.com)
 
-## Pending
+## Where is the API?
 
-When I have quota with mi google-api-key create a backend for update always with the new videos, for now use the response.example.js that has all the video list
+[Tatsumaki Duken API](https://github.com/riojano0/tatsumaki-duken-api)
+
 
 ## Available Scripts
 

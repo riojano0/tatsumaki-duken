@@ -8,20 +8,20 @@ class Main extends React.Component {
     constructor() {
         super();
         this.state = {
+            videos : [],
             video : "",
             selectedVideo : "",
             showMessage: "Quiero ver todos esos fernets!",
             hiddenVideos: true
         };
 
-        this.videos = this.loadVideos();
         this.handleClickSelectFernet = this.handleClickSelectFernet.bind(this);
         this.handleThumbClick = this.handleThumbClick.bind(this);
         this.handleClickShowVideos = this.handleClickShowVideos.bind(this);
     }
 
     render() {
-        const videos = this.videos;
+        const videos = this.state.videos;
         const videoList = videos.map((data, idx) => {
             return <img className="video-thumb" key={idx} src={data.thumb} alt={data.title} onClick={() => this.handleThumbClick(data)}/>;
         })
@@ -43,15 +43,12 @@ class Main extends React.Component {
         );
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const videos = await TatsumakiDukenApi.getVideos()
         this.setState({
-            selectedVideo : this.videos[0].id
-        });
-    }
-
-    loadVideos() {
-        const videos = TatsumakiDukenApi.getVideos();
-        return videos;
+            videos : videos,
+            selectedVideo : videos[0].id
+        })
     }
 
     handleThumbClick(data) {

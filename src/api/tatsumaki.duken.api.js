@@ -1,19 +1,13 @@
-// import axios from 'axios'
-import ResponseExample from './response.example'
+import axios from 'axios'
 
-// const tatsumakiDukenApiAxios = axios.create({
-    // TODO implement the API
-// })
+const tatsumakiDukenApiAxios = axios.create({
+    baseURL: 'https://tatsumaki-function.netlify.app'
+})
 
 const TatsumakiDukenApi = {
-    getVideos() {
-        return ResponseExample.items.map(data => {
-            return {
-                id: data.id.videoId,
-                title: data.snippet.title,
-                thumb: data.snippet.thumbnails.default.url
-            };
-        });
+    async getVideos() {
+        const response = await tatsumakiDukenApiAxios.get('/.netlify/functions/api')
+        return response.data;
     }
 }
 
